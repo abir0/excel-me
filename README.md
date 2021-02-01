@@ -14,5 +14,7 @@ pip install openpyxl
 Then to execute the program, run the following command:
 
 ```
-./excel-me.py <your-image-file> [--resize]
+./excel-me.py <your-image-filename> [--resize]
 ```
+
+That's it! It will create an excel sheet. Open and zoom out to see the magic.
