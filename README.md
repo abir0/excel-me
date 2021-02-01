@@ -13,7 +13,7 @@ py -m pip install -r requirements.txt
 
 Then to execute the program, run the following command:
 
-```
+```powershell
 ./excel-me.py <your-image-filename> [--resize]
 ```
 
