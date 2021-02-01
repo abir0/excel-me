@@ -13,6 +13,6 @@ pip install openpyxl
 
 Then to execute the program, run the following command:
 
-```bash
+```
 ./excel-me.py <your-image-file> [--resize]
 ```
