@@ -47,6 +47,8 @@ def main(arg):
     for i in range(1, width + 1):
         col = get_column_letter(i)
         string = col + "1" + ":" + col + str(height)
+        sheet.column_dimensions[col].height = 27.5
+        sheet.column_dimensions[col].width = 3.5
         #print("Adding color rule to cells", string)
         if i % 3 == 1:
             sheet.conditional_formatting.add(string, color_scale_rule_red)
@@ -61,7 +63,7 @@ def main(arg):
 def image_to_list(image):
     """Convert image to tabular list."""
     arr = np.array(image)
-    w, h, p = arr.shape[0], arr.shape[1], arr.shape[2]
+    h, w, p = arr.shape[0], arr.shape[1], arr.shape[2]
     arr = arr.reshape((h, w*p))
     return arr.tolist(), (w*p), h
 
