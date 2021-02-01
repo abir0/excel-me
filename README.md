@@ -8,7 +8,7 @@ This repo contains a command line program that turns an image into an excel shee
 After cloning the repo, run the following command to install the project dependencies:
 
 ```bash
-pip install numpy openpyxl
+py -m pip install -r requirements.txt
 ```
 
 Then to execute the program, run the following command:
