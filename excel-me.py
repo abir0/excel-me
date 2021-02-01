@@ -9,13 +9,16 @@ from openpyxl.utils import get_column_letter
 
 def main(arg):
 
-    image = read_image(arg)
+    path = arg[0]
+
+    image = read_image(path)
     # Make the image smaller
-    image = resize_image(image, 240, 352)   # height, width for 240p
+    if len(arg) > 1 and arg[1] == "--resize":
+        image = resize_image(image, 360, 640)   # height, width for 240p
     list, width, height = image_to_list(image)
     #image.show()
 
-    filename = get_filename(arg)
+    filename = get_filename(path)
     wb = Workbook()
     sheet = wb.active
 
@@ -93,4 +96,4 @@ def get_filename(path):
 
 
 if __name__ == "__main__":
-    main(sys.argv[1])
+    main(sys.argv[1:])
