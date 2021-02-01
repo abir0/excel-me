@@ -1,0 +1,14 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Project oriented files
+*.tst
+*.out
+*.cmp
+*.hdl
+*.hack
+*.asm
+*.vm
+*.hack
