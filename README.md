@@ -1,2 +1,18 @@
-# excel-yourself
-Turn your image into a excel sheet (just for fun)
+Excel Yourself
+==============
+
+This repo contains a command line program that turns an image into an excel sheet.
+
+### Getting Started
+
+After cloning the repo, run the following command to install the project dependencies:
+
+```bash
+pip install openpyxl
+```
+
+Then to execute the program, run the following command:
+
+```bash
+./excel-me.py <your-image-file> [--resize]
+```
