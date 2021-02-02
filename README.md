@@ -20,7 +20,7 @@ py -m pip install -r requirements.txt
 Then to execute the program, run the following command:
 
 ```bash
-.\excel-me.py <your_image_filename> [--resize]
+.\excel-me.py <your_image_filename>
 ```
 
 That's it! It will create an excel sheet. Open and zoom out to see the magic.
