@@ -1,7 +1,7 @@
 Excel Yourself
 ==============
 
-This repo contains a command line program [excel-me.py](https://github.com/abir0/excel-yourself/blob/main/excel-me.py) that turns an image into an excel sheet.
+This repo contains a command line program [excel-me.py](./excel-me.py) that turns an image into an excel sheet.
 
 ### Getting Started
 
@@ -23,4 +23,4 @@ Then to execute the program, run the following command:
 .\excel-me.py <your_image_filename>
 ```
 
-That's it! It will create an excel sheet. Open and zoom out to see the magic.
+That's it! Open the newly created excel sheet and zoom out to see the magic.
