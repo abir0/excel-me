@@ -48,15 +48,18 @@ def main(arg):
                                       end_value=255,
                                       end_color="0000FF")
 
-    # Add the rules to worksheet
+    # Formula: col_width = (col_height * 0.1756) / 3
+    col_height = 12.75
+    col_width = (col_height * 0.175) / 3
+    
     for i in range(1, width + 1):
         # Convert column number to column letter
         col = get_column_letter(i)
         # Make the range string
         string = col + "1" + ":" + col + str(height)
         # Set column height, width for the cells
-        sheet.column_dimensions[col].height = 27.5
-        sheet.column_dimensions[col].width = 3.5
+        sheet.column_dimensions[col].height = col_height
+        sheet.column_dimensions[col].width = col_width
         # Add conditional formatting based on rules
         if i % 3 == 1:
             sheet.conditional_formatting.add(string, color_scale_rule_red)
