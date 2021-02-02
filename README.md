@@ -7,19 +7,19 @@ This repo contains a command line program [excel-me.py](https://github.com/abir0
 
 Install [python 3](https://www.python.org/downloads/) and [git](https://git-scm.com/) to get started. Then, run the following command to clone this repo into any directory:
 
-```powershell
+```bash
 git clone https://github.com/abir0/excel-yourself.git
 ```
 
 Now, run the following command to install the project dependencies:
 
-```powershell
+```bash
 py -m pip install -r requirements.txt
 ```
 
 Then to execute the program, run the following command:
 
-```powershell
+```bash
 .\excel-me.py <your_image_filename> [--resize]
 ```
 
