@@ -9,17 +9,19 @@ from openpyxl.utils import get_column_letter
 
 def main(arg):
 
-    path = arg[0]
+    path = arg[0]   # store filepath
 
     image = read_image(path)
-    # Make the image smaller
+    # Resize the image if there is --resize flag
     if len(arg) > 1 and arg[1] == "--resize":
-        image = resize_image(image, 360, 640)   # height, width for 240p
+        image = resize_image(image, 360, 640)   # rezise into 360p
     list, width, height = image_to_list(image)
     #image.show()
 
     filename = get_filename(path)
+    # Create an workbook instance
     wb = Workbook()
+    # Select the active worksheet
     sheet = wb.active
 
     # Apend the pixel values to worksheet
@@ -48,11 +50,14 @@ def main(arg):
 
     # Add the rules to worksheet
     for i in range(1, width + 1):
+        # Convert column number to column letter
         col = get_column_letter(i)
+        # Make the range string
         string = col + "1" + ":" + col + str(height)
+        # Set column height, width for the cells
         sheet.column_dimensions[col].height = 27.5
         sheet.column_dimensions[col].width = 3.5
-        #print("Adding color rule to cells", string)
+        # Add conditional formatting based on rules
         if i % 3 == 1:
             sheet.conditional_formatting.add(string, color_scale_rule_red)
         elif i % 3 == 2:
@@ -60,15 +65,20 @@ def main(arg):
         elif i % 3 == 0:
             sheet.conditional_formatting.add(string, color_scale_rule_blue)
 
+    # Create the excel file
     wb.save(filename=filename)
 
 
 def image_to_list(image):
-    """Convert image to tabular list."""
+    """Convert image to tabular form and retun the list, width and height of the table."""
     arr = np.array(image)
     h, w, p = arr.shape[0], arr.shape[1], arr.shape[2]
+    # Reshape to include RGB pixels in the column dimension
     arr = arr.reshape((h, w*p))
-    return arr.tolist(), (w*p), h
+    list = arr.tolist()
+    width = (w*p)
+    height = h
+    return list, width, height
 
 
 def resize_image(image, height, width):
@@ -87,9 +97,12 @@ def read_image(path):
 
 def get_filename(path):
     """Parse filepath, remove old file and retuen the filename."""
+    # Take the filename part of the path (in lowercase)
     name = os.path.basename(path).lower()
+    # Remove file extension
     name = name.replace(".jpeg", "").replace(".jpg", "").replace(".png", "")
     name += ".xlsx"
+    # Remove old *.xlsx file
     if os.path.exists(name):
         os.remove(name)
     return name
