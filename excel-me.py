@@ -13,7 +13,7 @@ def main(arg):
 
     image = read_image(path)
     # Resize the image if there is --resize flag
-    if len(arg) > 1 and arg[1] == "--resize":
+    if "--resize" is in arg:
         image = resize_image(image, 360, 640)   # rezise into 360p
     list, width, height = image_to_list(image)
     #image.show()
@@ -51,7 +51,7 @@ def main(arg):
     # Formula: col_width = (col_height * 0.175) / 3
     col_height = 12.75
     col_width = (col_height * 0.175) / 3
-    
+
     for i in range(1, width + 1):
         # Convert column number to column letter
         col = get_column_letter(i)
