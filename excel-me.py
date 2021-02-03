@@ -48,7 +48,7 @@ def main(arg):
                                       end_value=255,
                                       end_color="0000FF")
 
-    # Formula: col_width = (col_height * 0.1756) / 3
+    # Formula: col_width = (col_height * 0.175) / 3
     col_height = 12.75
     col_width = (col_height * 0.175) / 3
     
