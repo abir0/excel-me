@@ -13,7 +13,7 @@ def main(arg):
 
     image = read_image(path)
     # Resize the image if there is --resize flag
-    if "--resize" is in arg:
+    if "--resize" in arg:
         image = resize_image(image, 360, 640)   # rezise into 360p
     list, width, height = image_to_list(image)
     #image.show()
