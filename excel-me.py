@@ -1,9 +1,9 @@
-import sys, os
+import sys
+import os
 from PIL import Image
 import numpy as np
 from openpyxl import Workbook
 from openpyxl.formatting.rule import ColorScaleRule
-from openpyxl.styles import colors
 from openpyxl.utils import get_column_letter
 
 
@@ -16,7 +16,7 @@ def main(arg):
     if "--resize" in arg:
         image = resize_image(image, 360, 640)   # rezise into 360p
     list, width, height = image_to_list(image)
-    #image.show()
+    # image.show()
 
     filename = get_filename(path)
     # Create an workbook instance
@@ -30,23 +30,23 @@ def main(arg):
 
     # Make conditional formatting rules
     color_scale_rule_red = ColorScaleRule(start_type="num",
-                                      start_value=0,
-                                      start_color="000000",
-                                      end_type="num",
-                                      end_value=255,
-                                      end_color="FF0000")
+                                          start_value=0,
+                                          start_color="000000",
+                                          end_type="num",
+                                          end_value=255,
+                                          end_color="FF0000")
     color_scale_rule_green = ColorScaleRule(start_type="num",
-                                      start_value=0,
-                                      start_color="000000",
-                                      end_type="num",
-                                      end_value=255,
-                                      end_color="00FF00")
+                                            start_value=0,
+                                            start_color="000000",
+                                            end_type="num",
+                                            end_value=255,
+                                            end_color="00FF00")
     color_scale_rule_blue = ColorScaleRule(start_type="num",
-                                      start_value=0,
-                                      start_color="000000",
-                                      end_type="num",
-                                      end_value=255,
-                                      end_color="0000FF")
+                                           start_value=0,
+                                           start_color="000000",
+                                           end_type="num",
+                                           end_value=255,
+                                           end_color="0000FF")
 
     # Formula: col_width = (col_height * 0.175) / 3
     col_height = 12.75
@@ -73,13 +73,14 @@ def main(arg):
 
 
 def image_to_list(image):
-    """Convert image to tabular form and retun the list, width and height of the table."""
+    """Convert image to tabular form and retun the list,
+       width and height of the table."""
     arr = np.array(image)
     h, w, p = arr.shape[0], arr.shape[1], arr.shape[2]
     # Reshape to include RGB pixels in the column dimension
-    arr = arr.reshape((h, w*p))
+    arr = arr.reshape((h, w * p))
     list = arr.tolist()
-    width = (w*p)
+    width = (w * p)
     height = h
     return list, width, height
 
