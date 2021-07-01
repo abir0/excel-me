@@ -114,7 +114,3 @@ class ExcelMe:
         if os.path.exists(name):
             os.remove(name)
         return name
-
-
-if __name__ == "__main__":
-    ExcelMe(sys.argv[1:]).main()
