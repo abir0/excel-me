@@ -4,7 +4,5 @@ __pycache__/
 *$py.class
 
 # Image / Excel files
-*.jpeg
-*.jpg
-*.png
+/test_files/*
 *.xlsx
