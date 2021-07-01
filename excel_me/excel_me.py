@@ -113,4 +113,4 @@ class ExcelMe:
         # Remove old *.xlsx file
         if os.path.exists(name):
             os.remove(name)
-        return name
+        return ".\\" + name
