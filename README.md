@@ -21,11 +21,14 @@ That's it! Open the newly created excel sheet and zoom out to see the magic.
 
 ### Example
 
-<p align='center'><img src='Lenna.png'></p>
+<p align='center'>
+  <img src='Lenna.png' height='500' width='500'></br>
+  <i align='center'>Original PNG image</i>
+</p>
 
 Run `python excel_me Lenna.png` and the program will generate:
 
 <p align='center'>
-  <img src='https://i.imgur.com/ebDk21T.png'></br>
+  <img src='https://i.imgur.com/ebDk21T.png' height='500' width='500'></br>
   <i align='center'>Zoomed out view of Lenna in excel sheet</i>
 </p>
