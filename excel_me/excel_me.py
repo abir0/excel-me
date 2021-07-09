@@ -1,13 +1,12 @@
 import sys
-import os
+from pathlib import Path
+
 
 from PIL import Image
 import numpy as np
-
 from openpyxl import Workbook
 from openpyxl.formatting.rule import ColorScaleRule
 from openpyxl.utils import get_column_letter
-
 from prompt_toolkit.shortcuts import ProgressBar
 
 
@@ -16,7 +15,7 @@ class ExcelMe:
         if len(arg) == 0:
             sys.exit("No filename is given...")
         self.arg = arg
-        self.path = arg[0]  # store filepath
+        self.path = Path(arg[0])  # store filepath
 
     def main(self):
         image = self.read_image(self.path)
@@ -119,11 +118,11 @@ class ExcelMe:
     def get_filename(path):
         """Parse filepath, remove old file and retuen the filename."""
         # Take the filename part of the path (in lowercase)
-        name = os.path.basename(path).lower()
+        name = path.name.lower()
         # Remove file extension
         name = name.replace(".jpeg", "").replace(".jpg", "").replace(".png", "")
         name += ".xlsx"
         # Remove old *.xlsx file
-        if os.path.exists(name):
-            os.remove(name)
-        return ".\\" + name
+        if Path(name).exists():
+            Path(name).unlink()
+        return name
